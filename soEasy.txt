@@ -1,5 +1,6 @@
 Hello from local
 
 
-Hello from branch, name : test2
+Hello from branch
 
+Branch : test2
