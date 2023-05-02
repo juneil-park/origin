@@ -13,7 +13,8 @@ public:
     void Display();
     Matrix AddMatrices(Matrix B);
     Matrix MultiplyMatrices(Matrix B);
- 
+    ~Matrix();  //소멸자
+
 private: // private 변수는 뒤에 언더바 _ 
     int Columb_;
     int Row_;
