@@ -20,7 +20,7 @@ class M300Status {
      * @brief Returns flight status
      * @return Returns FLIGHT_STATUS enum
      */
-    FLIGHT_STATUS GetFlightStatus();
+    M300Status::FLIGHT_STATUS GetFlightStatus();
 
     enum class PAYLOAD_STATUS {
         DEFAULT = 0,
@@ -38,7 +38,7 @@ class M300Status {
      * @brief Returns payload status when given a payload type
      * @return Returns PAYLOAD_TYPE enum
      */
-    PAYLOAD_STATUS GetPayloadStatus(PAYLOAD_TYPE payload_type);
+    M300Status::PAYLOAD_STATUS GetPayloadStatus(PAYLOAD_TYPE payload_type);
 };
 
 #endif  // LIBM300_STATUS_HPP
