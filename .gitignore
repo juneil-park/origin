@@ -30,3 +30,24 @@
 *.exe
 *.out
 *.app
+
+
+# Catkin custom files
+CATKIN_IGNORE
+
+**/.vscode/
+**/CMakeCache.txt
+**/install_manifest.txt
+**/.idea/
+**/cmake-build-debug/
+**/cmake-build-release/
+**/CMakeFiles
+**/CmakeCache.txt
+**/CTestTestfile.cmake
+**/catkin
+**/devel/
+**/gtest/
+**/test_results/
+**/Makefile
+**/catkin_generated/
+**/cmake_install.cmake
