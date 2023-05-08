@@ -31,7 +31,6 @@ class M600Status {
     enum class PAYLOAD_TYPE {
         CAMERA = 0,
         GIMBAL = 1,
-        SONAR = 2,
     };
 
     /**

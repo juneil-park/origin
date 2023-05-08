@@ -32,8 +32,3 @@ nlab::lib::Vector3f M600SensorData::GetGimbalData() {
     srand(time(0));
     return nlab::lib::Vector3f((float) rand()/RAND_MAX * 90.0f - 45.0f, (float) rand()/RAND_MAX * 240.0f - 120.0f, 0.0f);
 }
-
-float M600SensorData::GetSonarData() {
-    srand(time(0));
-    return (float) rand()/RAND_MAX * 10.0f;
-}

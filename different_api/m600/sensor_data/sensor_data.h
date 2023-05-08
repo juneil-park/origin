@@ -23,12 +23,6 @@ public:
      * @return Returns Vector3f
      */
     nlab::lib::Vector3f GetGimbalData();
-
-    /**
-     * @brief Returns sonar forward distance data
-     * @return Returns float
-     */
-    float GetSonarData();
 };
 
 #endif  // LIBM600_SENSOR_DATA_HPP
