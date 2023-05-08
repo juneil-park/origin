@@ -38,7 +38,7 @@ class M300Status {
      * @brief Returns payload status when given a payload type
      * @return Returns PAYLOAD_TYPE enum
      */
-    M300Status::PAYLOAD_STATUS GetPayloadStatus(PAYLOAD_TYPE payload_type);
+    M300Status::PAYLOAD_STATUS GetPayloadStatus(M300Status::PAYLOAD_TYPE payload_type);
 };
 
 #endif  // LIBM300_STATUS_HPP

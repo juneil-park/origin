@@ -17,7 +17,7 @@ nlab::lib::Vector3 M600Navigation::GetPosLlh() {
     return nlab::lib::Vector3(((double) rand() / (RAND_MAX)) + 37.0, ((double) rand() / (RAND_MAX)) + 126.0, rand() % 100 + 1.0);
 }
 
-nlab::lib::Vector3f M600Navigation::GetVelHdg() {
+nlab::lib::Vector3f M600Navigation::GetVelBody() {
     srand(time(0));
     return nlab::lib::Vector3f((float) rand()/RAND_MAX*6.0f - 3.0f, (float) rand()/RAND_MAX*6.0f - 3.0f, (float) rand()/RAND_MAX*6.0f - 3.0f);
 }

@@ -15,14 +15,14 @@ M600Status::FLIGHT_STATUS M600Status::GetFlightStatus() {
     return FLIGHT_STATUS(rand() % 4 + 1);
 }
 
-M600Status::PAYLOAD_STATUS M600Status::GetPayloadStatus(PAYLOAD_TYPE payload_type) {
+M600Status::PAYLOAD_STATUS M600Status::GetPayloadStatus(M600Status::PAYLOAD_TYPE payload_type) {
     switch (payload_type) {
-        case PAYLOAD_TYPE::CAMERA:
+        case M600Status::PAYLOAD_TYPE::CAMERA:
             srand(time(0));
-            return PAYLOAD_STATUS(rand() % 3);
-        case PAYLOAD_TYPE::GIMBAL:
+            return M600Status::PAYLOAD_STATUS(rand() % 3);
+        case M600Status::PAYLOAD_TYPE::GIMBAL:
             srand(time(0));
-            return PAYLOAD_STATUS(rand() % 3);
+            return M600Status::PAYLOAD_STATUS(rand() % 3);
         default:
             std::string errorMessage = "Wrong payload type, or payload type not specified";
             throw std::runtime_error(errorMessage);

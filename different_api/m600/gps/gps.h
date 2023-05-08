@@ -26,7 +26,7 @@ public:
      * @brief Returns current GPS health
      * @return GPS_HEALTH enum
      */
-    GPS_HEALTH GetGpsHealth();
+    M600Gps::GPS_HEALTH GetGpsHealth();
 
     enum class RTK_CONNECTION {
         DISCONNECTED = 0,
@@ -37,7 +37,7 @@ public:
      * @brief Returns current RTK connetion status
      * @return Returns RTK_CONNECTION
      */
-    RTK_CONNECTION GetRtkConnection();
+    M600Gps::RTK_CONNECTION GetRtkConnection();
 };
 
 #endif  // LIBM600_GPS_HPP

@@ -16,10 +16,10 @@ float M600Gps::GetGpsNum() {
 
 M600Gps::GPS_HEALTH M600Gps::GetGpsHealth() {
     srand(time(0));
-    return GPS_HEALTH(rand() % 2 + 1);
+    return M600Gps::GPS_HEALTH(rand() % 2 + 1);
 }
 
 M600Gps::RTK_CONNECTION M600Gps::GetRtkConnection() {
     srand(time(0));
-    return RTK_CONNECTION(rand() % 1 + 1);
+    return M600Gps::RTK_CONNECTION(rand() % 1 + 1);
 }

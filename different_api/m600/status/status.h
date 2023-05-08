@@ -8,6 +8,7 @@
 class M600Status {
     M600Status();
     ~M600Status();
+    
     enum FLIGHT_STATUS {
         DEFAULT = 0,
         ON_GROUND = 1,
@@ -37,7 +38,7 @@ class M600Status {
      * @brief Returns payload status when given a payload type
      * @return Returns PAYLOAD_TYPE enum
      */
-    M600Status::PAYLOAD_STATUS GetPayloadStatus(PAYLOAD_TYPE payload_type);
+    M600Status::PAYLOAD_STATUS GetPayloadStatus(M600Status::PAYLOAD_TYPE payload_type);
 };
 
 #endif  // LIBM600_STATUS_HPP

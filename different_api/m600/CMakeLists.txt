@@ -13,10 +13,6 @@ set(M600_API_SRCS
     status/status.cc
 )
 
-#add_library(nlablib STATIC IMPORTED)
-#set_property(TARGET nlablib PROPERTY
-#            IMPORTED_LOCATION "/usr/local/lib/libnlablib.so")
-
 add_library(dji_m600_api SHARED
   ${M600_API_SRCS}
 )

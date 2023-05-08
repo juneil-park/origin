@@ -28,7 +28,7 @@ public:
      * @brief Returns current velocity(m/s, m/s, m/s), in heading frame
      * @return Returns Vector3f
      */
-    nlab::lib::Vector3f GetVelHdg();
+    nlab::lib::Vector3f GetVelBody();
 
     /**
      * @brief Returns current Euler angles(deg, deg, deg) in Roll, Pitch, Yaw order
