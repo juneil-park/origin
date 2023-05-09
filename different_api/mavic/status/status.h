@@ -38,7 +38,7 @@ class MavicStatus {
 
     /**
      * @brief Returns payload status when given a payload type
-     * @return Returns PAYLOAD_TYPE enum
+     * @return Returns PAYLOAD_STATUS enum
      */
     MavicStatus::PAYLOAD_STATUS GetPayloadStatus(MavicStatus::PAYLOAD_TYPE payload_type);
 };

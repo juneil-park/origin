@@ -9,6 +9,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(MAVIC_API_SRCS
   gps/gps.cc
   status/status.cc
+  sensor/camera_data/camera_data.cc
+  sensor/gimbal_data/gimbal_data.cc
+  sensor/lidar_data/lidar_data.cc
+  sensor/integrated_navigation/integrated_navigation.cc
+  sensor/visual_data/visual_data.cc
 )
 
 add_library(dji_mavic_api SHARED
@@ -21,9 +26,14 @@ include_directories(dji_mavic_api
 
 # Installation
 file(GLOB MAVIC_API_HEADERS
-    gps/gps.h
-    sensor/sensor.h
-    status/status.h
+  gps/gps.h
+  sensor/sensor.h
+  sensor/camera_data/camera_data.h
+  sensor/gimbal_data/gimbal_data.h
+  sensor/lidar_data/lidar_data.h
+  sensor/integrated_navigation/integrated_navigation.h
+  sensor/visual_data/visual_data.h
+  status/status.h
 )
 
 set_target_properties(dji_mavic_api PROPERTIES

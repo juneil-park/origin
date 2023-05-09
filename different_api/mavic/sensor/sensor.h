@@ -5,11 +5,11 @@
 #ifndef LIBMAVIC_SENSOR_HPP
 #define LIBMAVIC_SENSOR_HPP
 
-#include <integrated_navigation/integrated_navigation.h>
-#include <visual_data/visual_data.h>
-#include <lidar_data/lidar_data.h>
-#include <camera_data/camera_data.h>
-#include <gimbal_data/gimbal_data.h>
+#include <integrated_navigation.h>
+#include <visual_data.h>
+#include <lidar_data.h>
+#include <camera_data.h>
+#include <gimbal_data.h>
 
 class MavicSensor {
 public:
