@@ -256,6 +256,7 @@ int main()
 
     int me_movement;
     int xi_movement;
+    int hasty_result = 1;
 
     for (int round_num = 0; round_num<5; round_num++)
     {
@@ -302,6 +303,7 @@ int main()
             {
                 std::cout << "Victory" << std::endl;
             }
+            hasty_result--;
             break;
         }
         //카운터 디펜드 조건
@@ -320,12 +322,16 @@ int main()
     
     }
 
+    if (hasty_result == 1)
+        if (me.GetHp() > xiangyu.GetHp())
+            std::cout << "Victory : Player!" << std::endl;
+        
+        else if (me.GetHp() < xiangyu.GetHp())
+            std::cout << "Victory : Xiang-Yu!" << std::endl;
+    
+        else if (me.GetHp() > xiangyu.GetHp())
+            std::cout << "Victory : Draw!" << std::endl;
 
-    std::cout << "My move :";
-    PrintDeque(my_move);
-
-    std::cout << "Xiang-yu move :";
-    PrintDeque(xiangyu_move);
 
     return 0;
 }
