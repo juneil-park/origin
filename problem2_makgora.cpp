@@ -7,34 +7,46 @@
 #include <vector>
 #include <algorithm>
 
-template <typename T>
-void PrintDeque(std::deque<T>& dq)
+enum class AvailableMovement : int
 {
-    enum AvailableMovement
-    {ATTACK=1, DEFEND, COUNTERATTACK, SPECIALMOVE, DONOTHING = 9};
+    ATTACK = 1, 
+    DEFEND, 
+    COUNTERATTACK, 
+    SPECIALMOVE, 
+    DONOTHING = 9
+};
 
+enum class CharactorInfo : int
+{
+    PLAYER,
+    XIANGYU
+};
+
+template <typename T>
+void PrintMove(std::deque<T>& dq, enum AvailableMovement)
+{
     std::cout << "[ ";
     for  (const auto& elem: dq)
     {
-        switch (elem)
+        switch (static_cast<AvailableMovement>(elem))
         {
-            case ATTACK:
+            case AvailableMovement::ATTACK:
                 std::cout<< "Attack" <<" ";
                 break;
 
-            case DEFEND:
+            case AvailableMovement::DEFEND:
                 std::cout<< "Defend" <<" ";
                 break;
 
-            case COUNTERATTACK:
+            case AvailableMovement::COUNTERATTACK:
                 std::cout<< "CounterAttack" <<" ";
                 break;
 
-            case SPECIALMOVE:
+            case AvailableMovement::SPECIALMOVE:
                 std::cout<< "SpecialMove" <<" ";
                 break;
 
-            case DONOTHING:
+            case AvailableMovement::DONOTHING:
                 std::cout<< "DoNothing" <<" ";
                 break;
 
@@ -46,10 +58,9 @@ void PrintDeque(std::deque<T>& dq)
 
 
 template <typename T>
-void PrintDequeUsingIntel(std::deque<T>& dq, int my_intel, int xi_intel)
+void PrintMoveUsingIntel(std::deque<T>& dq, int my_intel, int xi_intel, enum AvailableMovement)
 {
-    enum AvailableMovement
-    {ATTACK=1, DEFEND, COUNTERATTACK, SPECIALMOVE, DONOTHING = 9};
+    
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<int> dis_open_num(0,4); 
@@ -67,25 +78,25 @@ void PrintDequeUsingIntel(std::deque<T>& dq, int my_intel, int xi_intel)
     {   
         if (std::count(open_num_vector.begin(), open_num_vector.end(), open_count))
         {
-            switch (elem)
+            switch (static_cast<AvailableMovement>(elem))
             {
-                case ATTACK:
+                case AvailableMovement::ATTACK:
                     std::cout<< "Attack" <<" ";
                     break;
 
-                case DEFEND:
+                case AvailableMovement::DEFEND:
                     std::cout<< "Defend" <<" ";
                     break;
 
-                case COUNTERATTACK:
+                case AvailableMovement::COUNTERATTACK:
                     std::cout<< "CounterAttack" <<" ";
                     break;
 
-                case SPECIALMOVE:
+                case AvailableMovement::SPECIALMOVE:
                     std::cout<< "SpecialMove" <<" ";
                     break;
 
-                case DONOTHING:
+                case AvailableMovement::DONOTHING:
                     std::cout<< "DoNothing" <<" ";
                     break;
 
@@ -101,14 +112,12 @@ void PrintDequeUsingIntel(std::deque<T>& dq, int my_intel, int xi_intel)
 
 }
 
-std::deque<int> SetMyMove()  // enum으로 구현?
+std::deque<int> SetPlayerMove(enum AvailableMovement)  
 {
-    // std::vector<std::string> available_movement = {"Attack", "Defend","CounterAttack","SpecialMove"};
-    enum AvailableMovement
-    {ATTACK=1, DEFEND, COUNTERATTACK, SPECIALMOVE, DONOTHING = 9};
+    
     std::deque<int> my_move;
     int movement;
-    int special_token = 1;
+    bool special_token = true;
     int i=0;
     std::cout <<"당신의 행동을 아래에서 골라주세요" << std::endl;
     std::cout << "1. Attack / 2.Defend / 3.CounterAttack / 4. SpecialMove" << std::endl;
@@ -116,17 +125,17 @@ std::deque<int> SetMyMove()  // enum으로 구현?
     while (i<5)
     {
         std::cin >> movement;
-        // std::cout << "Input num : " << movement << std::endl;
-        if (movement >=ATTACK && movement<=SPECIALMOVE) 
+        
+        if (movement >= static_cast<int>(AvailableMovement::ATTACK) && movement<=static_cast<int>(AvailableMovement::SPECIALMOVE)) // 허용되는 입력 범위.
         {
-            if (movement == SPECIALMOVE)
+           
+            if (static_cast<AvailableMovement>(movement) == AvailableMovement::SPECIALMOVE)
                 {    
-                if(special_token == 1)
+                if (special_token == true)
                 {
                     my_move.push_back(movement);
-                    // my_move.push_back(availablemovement.movement);
                     i++;
-                    special_token--;
+                    special_token = false;
                 }
                 else
                 {
@@ -143,37 +152,32 @@ std::deque<int> SetMyMove()  // enum으로 구현?
         {
             std::cout<<"표시된 번호 중에서 선택해주세요 (제발)"<<std::endl;
         }
-        // std::cout << i <<std::endl;
     }
         return my_move;
 
 }
 
-std::deque<int> SetXiangyuMove()  // enum으로 구현?
+std::deque<int> SetXiangyuMove(enum AvailableMovement)
 {
-    enum AvailableMovement
-    {ATTACK=1, DEFEND, COUNTERATTACK, SPECIALMOVE, DONOTHING = 9};
     std::deque<int> xiangyu_move;
     int movement;
-    int special_token = 1;
+    bool special_token = true;
     int i=0;
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<int> dis_num(1,4); 
 
-
     while (i<5)
     {
         movement = dis_num(gen);
     
-        if (movement == SPECIALMOVE)
+        if (static_cast<AvailableMovement>(movement) == AvailableMovement::SPECIALMOVE)
             {    
-            if(special_token == 1)
+            if (special_token == true)
             {
                 xiangyu_move.push_back(movement);
-                // my_move.push_back(availablemovement.movement);
                 i++;
-                special_token--;
+                special_token = false;
             }
     
         }
@@ -183,42 +187,32 @@ std::deque<int> SetXiangyuMove()  // enum으로 구현?
             i++;
         }
     }
-   
     return xiangyu_move;
-
 }
 
-Behavior* MoveConvert(int movement, int player)
-{
-    enum testEnum
+Behavior* MoveConvert(int movement, int player_info, enum CharactorInfo,enum AvailableMovement)
+{ 
+    switch (static_cast<AvailableMovement>(movement))
     {
-        ATTACK=1,
-        DEFEND,
-        COUNTERATTACK,
-        SPECIALMOVE,
-        DONOTHING = 9
-    };
-    
-    switch (movement)
-    {
-        case ATTACK:
+        case AvailableMovement::ATTACK:
             return new Attack();
     
-        case DEFEND:
+        case AvailableMovement::DEFEND:
             return new Defend();
-        case COUNTERATTACK:
+            
+        case AvailableMovement::COUNTERATTACK:
             return new CounterAttack();
 
-        case SPECIALMOVE:
-            if (player == 0)
+        case AvailableMovement::SPECIALMOVE:
+            if ((static_cast<CharactorInfo>(player_info) == CharactorInfo::PLAYER))
             {
                 return new HealthShild();
             }
-            else if (player == 1)
+            else if ((static_cast<CharactorInfo>(player_info) == CharactorInfo::XIANGYU))
             {
                 return new YukBalSanGiGaeSay();
             }
-        case DONOTHING:
+        case AvailableMovement::DONOTHING:
             return new DoNothing();
     }
 }
@@ -226,76 +220,68 @@ Behavior* MoveConvert(int movement, int player)
 int main()
 {   
 
-    std::deque<int> xiangyu_move = SetXiangyuMove(); // 랜덤생성으로 개발 해보실?
+    AvailableMovement availablemovement;
+    CharactorInfo charactorinfo;
 
-
+    std::deque<int> xiangyu_move = SetXiangyuMove(availablemovement);
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<int> dis_power(60,80); // 플레이어의 power 랜덤 생성 (60-80)
     std::uniform_int_distribution<int> dis_intel(70,100); // 플레이어의 intelligent 랜덤 생성 (70-100)
     
-    Charactor me(dis_power(gen),dis_intel(gen),100);
-    Charactor xiangyu(100,50,100);
+
+    Charactor player(dis_power(gen),dis_intel(gen),100,0); // (power, intelligent, hp, playerinfo[player : 0 , xiangyu : 1])
+    Charactor xiangyu(100,50,100,1);
     
-    PrintDequeUsingIntel(xiangyu_move,me.GetIntel(), xiangyu.GetIntel());
+    //플레이어의 지능을 이용해서 항우의 행동을 예측, 콘솔에 표시
+    PrintMoveUsingIntel(xiangyu_move,player.GetIntel(), xiangyu.GetIntel(), availablemovement); 
+    
+    std::deque<int> player_move = SetPlayerMove(availablemovement);
+    std::cout << "Player's move :";
+    PrintMove(player_move,availablemovement);
 
-    std::deque<int> my_move = SetMyMove();
-    std::cout << "My move :";
-    PrintDeque(my_move);
-
-    std::cout << "Xiang-yu move :";
-    PrintDeque(xiangyu_move);
-
-
-    me.SetDamage((50-(xiangyu.GetPower()-me.GetPower()))/2);
-    xiangyu.SetDamage((50-(me.GetPower()-xiangyu.GetPower()))/2);
+    std::cout << "Xiang-yu's move :";
+    PrintMove(xiangyu_move,availablemovement);
 
 
-    std::cout << "My damage : " << me.GetDamage() << std::endl;
+    player.SetDamage((50-(xiangyu.GetPower()-player.GetPower()))/2);
+    xiangyu.SetDamage((50-(player.GetPower()-xiangyu.GetPower()))/2);
+
+
+    std::cout << "Player's damage : " << player.GetDamage() << std::endl;
     std::cout << "Xiangyu's damage : " << xiangyu.GetDamage() << std::endl;
 
-    int me_movement;
-    int xi_movement;
-    int hasty_result = 1;
+    int player_current_movement;
+    int xiangyu_current_movement;
+    bool hasty_result = false; //모든 라운드가 종료하기 전에 결과가 나왔는지 체크
 
     for (int round_num = 0; round_num<5; round_num++)
     {
-        me_movement = my_move[round_num];
-        xi_movement = xiangyu_move[round_num];
+        player_current_movement = player_move[round_num];
+        xiangyu_current_movement = xiangyu_move[round_num];
 
-        Behavior* meBehavior = MoveConvert(me_movement,0);
-        Behavior* xiBehavior = MoveConvert(xi_movement,0);
+        Behavior* playerBehavior = MoveConvert(player_current_movement, player.GetPlayerInfo(),charactorinfo,availablemovement);
+        Behavior* xiangyuBehavior = MoveConvert(xiangyu_current_movement,player.GetPlayerInfo(),charactorinfo,availablemovement);
         
-        // Behavior* meBehavior  = new Defend();
-        // Behavior* xiBehavior   = new Attack();    
+        player.setBehavior(playerBehavior);
+        double player_deal = player.performBehavior(xiangyuBehavior,xiangyu.GetDamage());
+        xiangyu.SetHp(xiangyu.GetHp() - player_deal);
 
-        me.setBehavior(meBehavior);
-        // me.performBehavior();
-        double me_deal = me.performBehavior(xiBehavior,xiangyu.GetDamage());
-        xiangyu.SetHp(xiangyu.GetHp() - me_deal);
-        
+        xiangyu.setBehavior(xiangyuBehavior);
+        double xiangyu_deal = xiangyu.performBehavior(playerBehavior,player.GetDamage());
+        player.SetHp(player.GetHp() - xiangyu_deal);
 
-
-        xiangyu.setBehavior(xiBehavior);
-        double xiangyu_deal = xiangyu.performBehavior(meBehavior,me.GetDamage());
-        me.SetHp(me.GetHp() - xiangyu_deal);
-
-        // me.performBehavior();
-        // std::cout << "내 HP : " << me.GetHp() << std::endl;
-        // xiangyu.performBehavior() ;
-        // std::cout  << "항우 HP : " << xiangyu.GetHp() << std::endl;
-        
         //결과 보고
-        std::cout << "Round " << round_num+1 << ")" << "You : " << me.GetHp() << " " << "Xiang-yu : " << xiangyu.GetHp() << std::endl;
+        std::cout << "Round " << round_num+1 << ") " << "Player : " << player.GetHp() << " " << "Xiang-yu : " << xiangyu.GetHp() << std::endl;
         
         //종료조건
-        if (me.GetHp() == 0 || xiangyu.GetHp() == 0)
+        if (player.GetHp() == 0 || xiangyu.GetHp() == 0)
         {
-            if (me.GetHp() == 0 && xiangyu.GetHp() == 0)
+            if (player.GetHp() == 0 && xiangyu.GetHp() == 0)
             {
                 std::cout << "Draw" << std::endl;
             }
-            else if (me.GetHp() == 0)
+            else if (player.GetHp() == 0)
             {
                 std::cout << "Defeat" << std::endl;
             }
@@ -303,33 +289,35 @@ int main()
             {
                 std::cout << "Victory" << std::endl;
             }
-            hasty_result--;
+            hasty_result = true;
             break;
         }
-        //카운터 디펜드 조건
+        // Defend vs CounterAttack 시 다음 라운드의 행동 변경
         if (round_num <4)    
-            if (me_movement == 2 && xi_movement == 3)
+            if (static_cast<AvailableMovement>(player_current_movement) == AvailableMovement::DEFEND && 
+            static_cast<AvailableMovement>(player_current_movement) == AvailableMovement::COUNTERATTACK)
             {
                 xiangyu_move.erase(xiangyu_move.begin()+round_num+1);
-                xiangyu_move.insert(xiangyu_move.begin()+round_num+1,9); 
+                xiangyu_move.insert(xiangyu_move.begin()+round_num+1,(int)AvailableMovement::DONOTHING); 
             }
 
-            if (me_movement == 3 && xi_movement == 2)
+            if (static_cast<AvailableMovement>(player_current_movement) == AvailableMovement::COUNTERATTACK &&
+            static_cast<AvailableMovement>(player_current_movement) == AvailableMovement::DEFEND)
             {
-                my_move.erase(my_move.begin()+round_num+1);
-                my_move.insert(my_move.begin()+round_num+1,9);
+                player_move.erase(player_move.begin()+round_num+1);
+                player_move.insert(player_move.begin()+round_num+1,(int)AvailableMovement::DONOTHING);
             }
     
     }
-
-    if (hasty_result == 1)
-        if (me.GetHp() > xiangyu.GetHp())
+    // 승패가 결정되지 않았다면, 체력이 많은쪽이 승리
+    if (hasty_result == false)
+        if (player.GetHp() > xiangyu.GetHp())
             std::cout << "Victory : Player!" << std::endl;
         
-        else if (me.GetHp() < xiangyu.GetHp())
+        else if (player.GetHp() < xiangyu.GetHp())
             std::cout << "Victory : Xiang-Yu!" << std::endl;
     
-        else if (me.GetHp() > xiangyu.GetHp())
+        else if (player.GetHp() == xiangyu.GetHp())
             std::cout << "Victory : Draw!" << std::endl;
 
 

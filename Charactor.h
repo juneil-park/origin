@@ -5,10 +5,10 @@
 class Charactor
 {
     public:
-    Charactor(int p, int i, double h);
+    Charactor(int p, int i, double h, int pi) :power_(p), intel_(i), hp_(h), damage_(0), playerinfo_(pi) {};;
     ~Charactor() {};
     Behavior *behavior;
-
+    
     void setBehavior(Behavior *bh)
     {
         behavior = bh;
@@ -23,12 +23,6 @@ class Charactor
     {
         return behavior -> behav(opponent,damage_,opponent_damage,hp_,intel_);
     }
-
-
-    // Behavior& getBehavior()
-    // {
-    //     return behavior;
-    // }
 
     double GetHp()
     {
@@ -67,7 +61,10 @@ class Charactor
         return intel_;
     }
 
-
+    int GetPlayerInfo()
+    {
+        return playerinfo_;
+    }
 
     private:
 
@@ -75,6 +72,5 @@ class Charactor
     int intel_;
     double hp_;
     double damage_;
+    int playerinfo_;
 };
-Charactor::Charactor(int p, int i, double h)
-:power_(p), intel_(i), hp_(h), damage_(0) {};
