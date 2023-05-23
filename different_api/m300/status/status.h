@@ -6,6 +6,7 @@
 #define LIBM300_STATUS_HPP
 
 class M300Status {
+public:
     M300Status();
     ~M300Status();
     enum FLIGHT_STATUS {

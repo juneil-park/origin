@@ -6,6 +6,7 @@
 #define LIBM600_STATUS_HPP
 
 class M600Status {
+public:
     M600Status();
     ~M600Status();
     

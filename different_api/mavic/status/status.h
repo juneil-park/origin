@@ -6,6 +6,7 @@
 #define LIBMAVIC_STATUS_HPP
 
 class MavicStatus {
+public:
     MavicStatus();
     ~MavicStatus();
 
