@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 09.
 //
 
-#include "flight_controller/flight_controller.h"
+#include "flight_controller.h"
 
 SkydioFlightController::SkydioFlightController() {}
 SkydioFlightController::~SkydioFlightController() {}

@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 09.
 //
 
-#include "lidar/lidar.h"
+#include "lidar.h"
 #include <cstdlib>
 #include <time.h>
 

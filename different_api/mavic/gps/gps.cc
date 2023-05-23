@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "gps/gps.h"
+#include "gps.h"
 #include <cstdlib>
 #include <time.h>
 

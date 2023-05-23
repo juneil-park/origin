@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 09.
 //
 
-#include "gimbal/gimbal.h"
+#include "gimbal.h"
 
 SkydioGimbal::SkydioGimbal() {}
 SkydioGimbal::~SkydioGimbal() {}

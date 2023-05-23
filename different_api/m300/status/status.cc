@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 4. 25.
 //
 
-#include "status/status.h"
+#include "status.h"
 #include <cstdlib>
 #include <time.h>
 #include <stdexcept>

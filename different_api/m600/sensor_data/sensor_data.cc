@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "sensor_data/sensor_data.h"
+#include "sensor_data.h"
 
 M600SensorData::M600SensorData() {}
 M600SensorData::~M600SensorData() {}

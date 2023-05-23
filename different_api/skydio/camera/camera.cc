@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 09.
 //
 
-#include "camera/camera.h"
+#include "camera.h"
 #include <cstdlib>
 #include <algorithm>
 #include <time.h>
