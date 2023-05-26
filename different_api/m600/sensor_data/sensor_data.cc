@@ -7,12 +7,12 @@
 M600SensorData::M600SensorData() {}
 M600SensorData::~M600SensorData() {}
 
-void FillRow(std::vector<int> & row)
+void M600SensorData::FillRow(std::vector<int> & row)
 {
     std::generate(row.begin(), row.end(), [](){ return rand() % 256; }); 
 }
 
-void FillMatrix(std::vector<std::vector<int>> & mat)
+void M600SensorData::FillMatrix(std::vector<std::vector<int>> & mat)
 {
     std::for_each(mat.begin(), mat.end(), FillRow);
 }

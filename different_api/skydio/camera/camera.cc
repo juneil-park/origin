@@ -14,12 +14,12 @@ SkydioCamera::CAMERA_STATUS GetCameraStatus() {
     return SkydioCamera::CAMERA_STATUS(rand() % 3);
 }
 
-void FillRow(std::vector<int> & row)
+void SkydioCamera::FillRow(std::vector<int> & row)
 {
     std::generate(row.begin(), row.end(), [](){ return rand() % 256; }); 
 }
 
-void FillMatrix(std::vector<std::vector<int>> & mat)
+void SkydioCamera::FillMatrix(std::vector<std::vector<int>> & mat)
 {
     std::for_each(mat.begin(), mat.end(), FillRow);
 }

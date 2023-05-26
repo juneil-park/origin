@@ -23,6 +23,10 @@ public:
      * @return Returns Vector3f
      */
     nlab::lib::Vector3f GetGimbalData();
+
+private:
+    static void FillRow(std::vector<int> & row);
+    static void FillMatrix(std::vector<std::vector<int>> & mat);
 };
 
 #endif  // LIBM600_SENSOR_DATA_HPP

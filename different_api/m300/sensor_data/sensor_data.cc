@@ -7,12 +7,12 @@
 M300SensorData::M300SensorData() {}
 M300SensorData::~M300SensorData() {}
 
-void FillRow(std::vector<int> & row)
+void M300SensorData::FillRow(std::vector<int> & row)
 {
     std::generate(row.begin(), row.end(), [](){ return rand() % 256; }); 
 }
 
-void FillMatrix(std::vector<std::vector<int>> & mat)
+void M300SensorData::FillMatrix(std::vector<std::vector<int>> & mat)
 {
     std::for_each(mat.begin(), mat.end(), FillRow);
 }

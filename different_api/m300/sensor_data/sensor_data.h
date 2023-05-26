@@ -29,6 +29,10 @@ public:
      * @return Returns float
      */
     float GetSonarData();
+
+private:
+    static void FillRow(std::vector<int> & row);
+    static void FillMatrix(std::vector<std::vector<int>> & mat);
 };
 
 #endif  // LIBM300_SENSOR_DATA_HPP
