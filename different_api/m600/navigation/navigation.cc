@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "navigation/navigation.h"
+#include "navigation.h"
 
 M600Navigation::M600Navigation() {}
 M600Navigation::~M600Navigation() {}

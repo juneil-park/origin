@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "sensor/visual_data/visual_data.h"
+#include "visual_data.h"
 #include <cstdlib>
 #include <time.h>
 
