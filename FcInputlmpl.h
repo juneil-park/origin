@@ -4,6 +4,7 @@
 #include "Flights.h"
 #include "FlightM300.h"
 #include "FlightM600.h"
+#include "FlightMavic.h"
 
 class FCInputImpl
 {
@@ -30,10 +31,10 @@ class FCInputImpl
         flight -> SetCameraStatus();
         flight -> SetDistanceStatus();
 
-        // ///Extract to Payload
-        // flight -> SetCameraData();
-        // flight -> SetGimbalData();
-        // flight -> SetDistanceData();
+        ///Extract to Payload
+        flight -> SetCameraData();
+        flight -> SetGimbalData();
+        flight -> SetDistanceData();
 
         return flight;
     };
@@ -63,6 +64,19 @@ class FcInputM600 : public FCInputImpl
     Flights* CreateFlight()
     {
         return new FlightM600();
+    }
+
+};
+
+class FcInputMavic : public FCInputImpl
+{
+    public:
+    FcInputMavic() {};
+    ~FcInputMavic() {};
+    
+    Flights* CreateFlight()
+    {
+        return new FlightMavic();
     }
 
 };

@@ -11,7 +11,8 @@ class Flights
 {
     
     public:
-    Flights(){} ;
+    Flights(){};
+    virtual ~Flights() {};
     
     virtual void SetGPSNum() = 0;
     virtual void SetGPSHealth() = 0;
@@ -25,12 +26,11 @@ class Flights
     virtual void SetCameraStatus() = 0;
     virtual void SetDistanceStatus() = 0;
 
-    // virtual void SetCameraData() = 0;
-    // virtual void SetGimbalData() = 0;
-    // virtual void SetDistanceData() = 0;
+    virtual void SetCameraData() = 0;
+    virtual void SetGimbalData() = 0;
+    virtual void SetDistanceData() = 0;
     
-
-    void ShowAllData()
+    void ShowGPSNum()
     {
         std::cout << "GPSNum : " << GPSNum_<<std::endl;
     }

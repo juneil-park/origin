@@ -26,7 +26,7 @@ class FlightM600 :public Flights
     M600Gps *m600gps;
     M600Navigation *m600navigation;
     M600Status *m600status;
-    // M600SensorData *m600sensordata;
+    M600SensorData *m600sensordata;
     
 
     void SetGPSNum()
@@ -74,18 +74,18 @@ class FlightM600 :public Flights
     }
 
 
-    // void SetCameraData()
-    // {
-    //     Flights::cameradata_ = m600sensordata->GetCameraData();
-    // }
-    // void SetGimbalData()
-    // {
-    //     Flights::gimbaldata_ = m600sensordata->GetGimbalData();
-    // }
-    // void SetDistanceData()
-    // {
-    //     Flights::distancedata_ = 0;
-    // }
+    void SetCameraData()
+    {
+        Flights::cameradata_ = m600sensordata->GetCameraData();
+    }
+    void SetGimbalData()
+    {
+        Flights::gimbaldata_ = m600sensordata->GetGimbalData();
+    }
+    void SetDistanceData()
+    {
+        Flights::distancedata_ = 0;
+    }
 
 };
 

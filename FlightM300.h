@@ -25,7 +25,7 @@ class FlightM300 :public Flights
     M300Gps *m300gps;
     M300Navigation *m300navigation;
     M300Status *m300status;
-    // M300SensorData *m300sensordata;
+    M300SensorData *m300sensordata;
     
 
     void SetGPSNum()
@@ -73,18 +73,18 @@ class FlightM300 :public Flights
     }
 
 
-    // void SetCameraData()
-    // {
-    //     Flights::cameradata_ = m300sensordata->GetCameraData();
-    // }
-    // void SetGimbalData()
-    // {
-    //     Flights::gimbaldata_ = m300sensordata->GetGimbalData();
-    // }
-    // void SetDistanceData()
-    // {
-    //     Flights::distancedata_ = m300sensordata->GetSonarData();
-    // }
+    void SetCameraData()
+    {
+        Flights::cameradata_ = m300sensordata->GetCameraData();
+    }
+    void SetGimbalData()
+    {
+        Flights::gimbaldata_ = m300sensordata->GetGimbalData();
+    }
+    void SetDistanceData()
+    {
+        Flights::distancedata_ = m300sensordata->GetSonarData();
+    }
 
 };
 
