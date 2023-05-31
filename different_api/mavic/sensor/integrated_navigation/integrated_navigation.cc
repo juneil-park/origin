@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "sensor/integrated_navigation/integrated_navigation.h"
+#include "integrated_navigation.h"
 
 MavicIntegratedNavigation::MavicIntegratedNavigation() {}
 MavicIntegratedNavigation::~MavicIntegratedNavigation() {}

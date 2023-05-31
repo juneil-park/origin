@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "sensor/camera_data/camera_data.h"
+#include "camera_data.h"
 #include <cstdlib>
 #include <algorithm>
 #include <time.h>

@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "sensor/lidar_data/lidar_data.h"
+#include "lidar_data.h"
 #include <cstdlib>
 #include <time.h>
 

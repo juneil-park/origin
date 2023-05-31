@@ -2,7 +2,7 @@
 // Created by jhbai on 23. 05. 08.
 //
 
-#include "sensor/gimbal_data/gimbal_data.h"
+#include "gimbal_data.h"
 
 MavicGimbalData::MavicGimbalData() {}
 MavicGimbalData::~MavicGimbalData() {}
