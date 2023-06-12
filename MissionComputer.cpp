@@ -20,7 +20,7 @@ int main()
     Flights* mavic = fcinputmmavic -> DataExtractApiToMC();
     mavic -> ShowGPSNum();
 
-  
+
     return 0;
 }
 

@@ -4,21 +4,9 @@
 #include "eNumCollections.h"
 
 #include "./different_api/mavic/gps/gps.h"
-#include "./different_api/mavic/sensor/camera_data/camera_data.h"
-#include "./different_api/mavic/sensor/gimbal_data/gimbal_data.h"
-#include "./different_api/mavic/sensor/integrated_navigation/integrated_navigation.h"
-#include "./different_api/mavic/sensor/lidar_data/lidar_data.h"
-#include "./different_api/mavic/sensor/visual_data/visual_data.h"
+#include "./different_api/mavic/sensor/sensor.h"
 #include "./different_api/mavic/status/status.h"
 
-
-#include "./different_api/mavic/gps/gps.cc"
-#include "./different_api/mavic/sensor/camera_data/camera_data.cc"
-#include "./different_api/mavic/sensor/gimbal_data/gimbal_data.cc"
-#include "./different_api/mavic/sensor/integrated_navigation/integrated_navigation.cc"
-#include "./different_api/mavic/sensor/lidar_data/lidar_data.cc"
-#include "./different_api/mavic/sensor/visual_data/visual_data.cc"
-#include "./different_api/mavic/status/status.cc"
 #include "Flights.h"
 #include <nlab/math.hpp>
 #include <vector>

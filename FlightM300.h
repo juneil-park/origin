@@ -4,13 +4,8 @@
 #include "eNumCollections.h"
 #include "different_api/m300/gps/gps.h"
 #include "different_api/m300/navigation/navigation.h"
-#include "./different_api/m300/sensor_data/sensor_data.h"
+#include "different_api/m300/sensor_data/sensor_data.h"
 #include "different_api/m300/status/status.h"
-
-#include "./different_api/m300/gps/gps.cc"
-#include "./different_api/m300/navigation/navigation.cc"
-#include "./different_api/m300/sensor_data/sensor_data.cc"
-#include "./different_api/m300/status/status.cc"
 
 #include "Flights.h"
 #include <nlab/math.hpp>

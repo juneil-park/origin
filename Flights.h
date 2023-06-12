@@ -5,11 +5,8 @@
 #include <nlab/math.hpp>
 #include <vector>
 
-
-
 class Flights
 {
-    
     public:
     Flights(){};
     virtual ~Flights() {};

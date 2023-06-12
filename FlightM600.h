@@ -7,11 +7,6 @@
 #include "./different_api/m600/sensor_data/sensor_data.h"
 #include "./different_api/m600/status/status.h"
 
-#include "./different_api/m600/gps/gps.cc"
-#include "./different_api/m600/navigation/navigation.cc"
-#include "./different_api/m600/sensor_data/sensor_data.cc"
-#include "./different_api/m600/status/status.cc"
-
 #include "Flights.h"
 #include <nlab/math.hpp>
 #include <vector>
@@ -48,7 +43,7 @@ class FlightM600 :public Flights
     }
     void SetVelocity()
     {
-        Flights::velocity_ = m600navigation->GetVelBody(); // Need to change Heading frame
+        Flights::velocity_ = m600navigation->GetVelBody(); // Need to change Heading frame  
     }
     void SetAttitude()
     {
