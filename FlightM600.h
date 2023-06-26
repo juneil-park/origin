@@ -22,7 +22,7 @@ class FlightM600 :public Flights
     M600Navigation *m600navigation;
     M600Status *m600status;
     M600SensorData *m600sensordata;
-    
+    matrix::Vector3f *vector3f;
 
     void SetGPSNum()
     {
@@ -31,7 +31,7 @@ class FlightM600 :public Flights
 
     void SetGPSHealth()
     {
-        Flights::GPShealth_ = static_cast<GPS_HEALTH>(m600gps->GetGpsHealth());
+        Flights::GPSHealth_ = static_cast<GPS_HEALTH>(m600gps->GetGpsHealth());
     }
     void SetPositionNED()
     {
@@ -44,6 +44,13 @@ class FlightM600 :public Flights
     void SetVelocity()
     {
         Flights::velocity_ = m600navigation->GetVelBody(); // Need to change Heading frame  
+        
+        nlab::lib::Vector3f tempattitude = m600navigation->GetEuler();
+        float angleRow = tempattitude(0);
+        float anglePitch = tempattitude(1);
+        nlab::lib::Vector3f velocityHDG;
+        Flights::velocity_ = velocityHDG;
+
     }
     void SetAttitude()
     {
@@ -81,6 +88,20 @@ class FlightM600 :public Flights
     {
         Flights::distancedata_ = 0;
     }
+
+    float GetGPSNum() {return Flights::GPSNum_;}
+    GPS_HEALTH GetGPSHealth(){return Flights::GPSHealth_;}
+    nlab::lib::Vector3f GetPositionNED(){return Flights::positionNED_;}
+    nlab::lib::Vector3 GetPositionLLH(){return Flights::positionLLH_;}
+    nlab::lib::Vector3f GetVelocity(){return Flights::velocity_;}
+    nlab::lib::Vector3f GetAttitude(){return Flights::attitude_;}
+    FLIGHT_STATUS GetFlightStatus(){return Flights::flightstatus_;}
+    PAYLOAD_STATUS GetGimbalStatus(){return Flights::gimbalstatus_;}
+    PAYLOAD_STATUS GetCameraStatus(){return Flights::camerastatus_;}
+    PAYLOAD_STATUS GetDistanceStatus(){return Flights::distancestatus_;}
+    std::vector<std::vector<int>> GetCameraData(){return Flights::cameradata_;}
+    nlab::lib::Vector3f GetGimbalData(){return Flights::gimbaldata_;}
+    float GetDistanceData(){return Flights::distancedata_;}
 
 };
 

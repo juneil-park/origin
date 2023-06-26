@@ -1,0 +1,5 @@
+if(EXISTS "/home/gnc/C++_practice/aerospace_cpp_onboarding/MissionComputerTest[1]_tests.cmake")
+  include("/home/gnc/C++_practice/aerospace_cpp_onboarding/MissionComputerTest[1]_tests.cmake")
+else()
+  add_test(MissionComputerTest_NOT_BUILT MissionComputerTest_NOT_BUILT)
+endif()

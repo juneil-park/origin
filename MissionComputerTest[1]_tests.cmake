@@ -1,0 +1,1 @@
+set( MissionComputerTest_TESTS)

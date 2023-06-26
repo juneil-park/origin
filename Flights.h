@@ -32,9 +32,23 @@ class Flights
         std::cout << "GPSNum : " << GPSNum_<<std::endl;
     }
 
+    virtual float GetGPSNum() = 0; 
+    virtual GPS_HEALTH GetGPSHealth() = 0;
+    virtual nlab::lib::Vector3f GetPositionNED() = 0;
+    virtual nlab::lib::Vector3 GetPositionLLH() = 0;
+    virtual nlab::lib::Vector3f GetVelocity() = 0;
+    virtual nlab::lib::Vector3f GetAttitude() = 0;
+    virtual FLIGHT_STATUS GetFlightStatus() = 0;
+    virtual PAYLOAD_STATUS GetGimbalStatus() = 0;
+    virtual PAYLOAD_STATUS GetCameraStatus() = 0;
+    virtual PAYLOAD_STATUS GetDistanceStatus() = 0;
+    virtual std::vector<std::vector<int>> GetCameraData() = 0;
+    virtual nlab::lib::Vector3f GetGimbalData() = 0;
+    virtual float GetDistanceData() = 0;
+
     protected:
     float GPSNum_;
-    GPS_HEALTH GPShealth_;
+    GPS_HEALTH GPSHealth_;
     nlab::lib::Vector3f positionNED_;
     nlab::lib::Vector3 positionLLH_;
     nlab::lib::Vector3f velocity_;
@@ -50,18 +64,6 @@ class Flights
     float distancedata_ ;
     
 
-    // void GetGPSNum()
-    // void GetGPSHealth()
-    // void GetPositionNED()
-    // void GetPositionLLH()
-    // void GetVelocity()
-    // void GetAttitude()
-    // void GetFlightStatus()
-    // void GetGimbalStatus()
-    // void GetCameraStatus()
-    // void GetDistanceStatus()
-    // void GetCameraData()
-    // void GetGimbalData()
-    // void GetDistanceData()
+    
 };
 #endif

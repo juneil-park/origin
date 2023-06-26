@@ -1,0 +1,5 @@
+if(EXISTS "/home/gnc/C++_practice/aerospace_cpp_onboarding/MC_src[1]_tests.cmake")
+  include("/home/gnc/C++_practice/aerospace_cpp_onboarding/MC_src[1]_tests.cmake")
+else()
+  add_test(MC_src_NOT_BUILT MC_src_NOT_BUILT)
+endif()

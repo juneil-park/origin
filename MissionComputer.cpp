@@ -4,6 +4,7 @@
 #include "FcInputlmpl.h"
 #include "FlightM300.h"
 #include "FlightM600.h"
+#include "FlightMavic.h"
 
 
 int main()
