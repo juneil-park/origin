@@ -9,7 +9,7 @@
 SkydioLidar::SkydioLidar() {}
 SkydioLidar::~SkydioLidar() {}
 
-SkydioLidar::LIDAR_STATUS GetLidarStatus() {
+SkydioLidar::LIDAR_STATUS SkydioLidar::GetLidarStatus() {
     return SkydioLidar::LIDAR_STATUS(rand() % 3);
 }
 

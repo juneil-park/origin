@@ -5,6 +5,7 @@
 #include "FlightM300.h"
 #include "FlightM600.h"
 #include "FlightMavic.h"
+#include "FlightSkdio.h"
 
 class FCInputImpl
 {
@@ -80,6 +81,20 @@ class FcInputMavic : public FCInputImpl
     }
 
 };
+
+class FcInputSkydio : public FCInputImpl
+{
+    public:
+    FcInputSkydio() {};
+    ~FcInputSkydio() {};
+    
+    Flights* CreateFlight()
+    {
+        return new FlightSkydio();
+    }
+
+};
+
 
 #endif //FCINPUTIMPL_HPP
 

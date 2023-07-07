@@ -43,14 +43,14 @@ class FlightM600 :public Flights
     }
     void SetVelocity()
     {
-        Flights::velocity_ = m600navigation->GetVelBody(); // Need to change Heading frame  
+        // Flights::velocity_ = m600navigation->GetVelBody(); // Need to change Heading frame  
         
-        nlab::lib::Vector3f tempattitude = m600navigation->GetEuler();
-        float angleRow = tempattitude(0);
-        float anglePitch = tempattitude(1);
-        nlab::lib::Vector3f velocityHDG;
-        Flights::velocity_ = velocityHDG;
+        nlab::lib::Vector3f euler_ = m600navigation->GetEuler();
 
+        nlab::lib::Dcmf dcmHdg2Bdy = nlab::lib::Dcmf(nlab::lib::Eulerf(euler_(0),euler_(1),0.0f));
+
+        Flights::velocity_ =  dcmHdg2Bdy.transpose()*m600navigation->GetVelBody();
+        
     }
     void SetAttitude()
     {

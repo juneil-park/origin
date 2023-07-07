@@ -7,7 +7,7 @@
 SkydioGimbal::SkydioGimbal() {}
 SkydioGimbal::~SkydioGimbal() {}
 
-SkydioGimbal::GIMBAL_STATUS GetGimbalStatus() {
+SkydioGimbal::GIMBAL_STATUS SkydioGimbal::GetGimbalStatus() {
     return SkydioGimbal::GIMBAL_STATUS(rand() % 3);
 }
 

@@ -10,7 +10,7 @@
 SkydioCamera::SkydioCamera() {}
 SkydioCamera::~SkydioCamera() {}
 
-SkydioCamera::CAMERA_STATUS GetCameraStatus() {
+SkydioCamera::CAMERA_STATUS SkydioCamera::GetCameraStatus() {
     return SkydioCamera::CAMERA_STATUS(rand() % 3);
 }
 

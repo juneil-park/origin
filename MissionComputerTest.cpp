@@ -42,18 +42,71 @@ bool DistanceStatusTest(Flights *flight)
     else { return false;}
 }
 
-TEST(StatusTest,statustest)
+
+bool PositionTest(Flights *flight)
 {
+    nlab::lib::Vector3f positionNed = flight -> GetPositionNED();
+    
+    if (((positionNed(0) >= -50) && (positionNed(0) <50)) &&
+    ((positionNed(1) >= -50) && (positionNed(1) <50)) &&
+    ((positionNed(2) >= 1) && (positionNed(2) <101))) {return true;}
+    else {return false;}
+}
+
+bool VelocityTest(Flights *flight)
+{
+    nlab::lib::Vector3f velocity = flight -> GetVelocity();
+    
+    if (((velocity(0) >= -3) && (velocity(0) < 3)) &&
+    ((velocity(1) >= -3) && (velocity(1) < 3)) &&
+    ((velocity(2) >= -3) && (velocity(2) < 3))) {return true;}
+    else {return false;}
+}
+
+bool AttitudeTest(Flights *flight)
+{
+    nlab::lib::Vector3f attitude = flight -> GetAttitude();
+    
+    if (((attitude(0) >= -30) && (attitude(0) < 30)) &&
+    ((attitude(1) >= -30) && (attitude(1) < 30)) &&
+    ((attitude(2) >= -180) && (attitude(2) < 180))) {return true;}
+    else {return false;}
+}
+
+bool SkydioPositionTest(Flights *flight)
+{
+    nlab::lib::Vector3f positionNed = flight -> GetPositionNED();
+    
+    if (((positionNed(0) >= -50*0.9144f) && (positionNed(0) <50*0.9144f)) &&
+    ((positionNed(1) >= -50*0.9144f) && (positionNed(1) <50*0.9144f)) &&
+    ((positionNed(2) >= 1*0.9144f) && (positionNed(2) <101*0.9144f))) {return true;}
+    else {return false;}
+}
+
+bool SkydioVelocityTest(Flights *flight)
+{
+    nlab::lib::Vector3f velocity = flight -> GetVelocity();
+    
+    if (((velocity(0) >= -3*0.9144f) && (velocity(0) < 3*0.9144f)) &&
+    ((velocity(1) >= -3*0.9144f) && (velocity(1) < 3*0.9144f)) &&
+    ((velocity(2) >= -3*0.9144f) && (velocity(2) < 3*0.9144f))) {return true;}
+    else {return false;}
+}
+
     FCInputImpl* fcinputm300 = new FcInputM300();
     Flights* m300 = fcinputm300 -> DataExtractApiToMC();
 
     FCInputImpl* fcinputm600 = new FcInputM600();
     Flights* m600 = fcinputm600 -> DataExtractApiToMC();
 
-    FCInputImpl* fcinputmmavic = new FcInputMavic();
-    Flights* mavic = fcinputmmavic -> DataExtractApiToMC();
+    FCInputImpl* fcinputmavic = new FcInputMavic();
+    Flights* mavic = fcinputmavic -> DataExtractApiToMC();
 
+    FCInputImpl* fcinputskydio = new FcInputSkydio();
+    Flights* skydio = fcinputskydio -> DataExtractApiToMC();
 
+TEST(StatusTest,statustest)
+{
     assert(GPSHealthTest(m300));
     assert(GPSHealthTest(m600));
     assert(GPSHealthTest(mavic));
@@ -75,6 +128,25 @@ TEST(StatusTest,statustest)
     assert(DistanceStatusTest(mavic));
 }
 
+TEST(NavigationTest,navigationtest)
+{
+    assert(PositionTest(m300));
+    assert(VelocityTest(m300));
+    assert(AttitudeTest(m300));
+
+    assert(PositionTest(m600));
+    assert(AttitudeTest(m600));
+
+    assert(PositionTest(mavic));
+    assert(VelocityTest(mavic));
+    assert(AttitudeTest(mavic));
+}
+
+TEST(SkydioTest,skydiotest)
+{
+    assert(PositionTest(skydio));
+    assert(VelocityTest(skydio));
+}
 
 
 int main(int argc, char* argv[])

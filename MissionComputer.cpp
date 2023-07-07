@@ -5,6 +5,7 @@
 #include "FlightM300.h"
 #include "FlightM600.h"
 #include "FlightMavic.h"
+#include "FlightSkdio.h"
 
 
 int main()
@@ -20,6 +21,10 @@ int main()
     FCInputImpl* fcinputmmavic = new FcInputMavic();
     Flights* mavic = fcinputmmavic -> DataExtractApiToMC();
     mavic -> ShowGPSNum();
+
+    FCInputImpl* fcinputskydio = new FcInputSkydio();
+    Flights* skdio = fcinputskydio -> DataExtractApiToMC();
+    skdio -> ShowGPSNum();
 
 
     return 0;
